@@ -6,7 +6,7 @@
 - **Project 3: Voltage Amplifiers** deliverable can be found in this video recording as my preferred submission: https://www.youtube.com/watch?v=q4y-tnzBNro. You can also write a report as an alternative way of submission as well.
 
 ## For LaTeX users (Overleaf)
-If you use LaTeX to write your report (Overleaf), and you wish to use my formatting for your report, you can do the following: 
+If you use LaTeX to write your report, and you wish to use my formatting for your report, you can do the following: 
 1. Copy and paste the following and put appropriate information (semester, date, your name, MacID, student number, project name,...). Do NOT click `Compile` yet, because you will have to set up the appropriate compiler for Times New Roman font. 
 ```
 \documentclass[12pt]{article}
@@ -19,7 +19,6 @@ If you use LaTeX to write your report (Overleaf), and you wish to use my formatt
 \renewcommand{\contentsname}{Table of Contents}
 \usepackage{enumitem}
 \usepackage{cancel}					
-\usepackage[margin=0.25in]{geometry}
 \usepackage{hyperref}
 \usepackage{float}
 \usepackage{multirow}
