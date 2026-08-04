@@ -96,4 +96,5 @@ If you use LaTeX to write your report, and you wish to use my formatting for you
 
 ## Update Log:
 - May 26, 2026: upload `.asc` file for Project 5. 
+- Aug 4, 2026: fix some minor bugs of the LaTeX code template
 
