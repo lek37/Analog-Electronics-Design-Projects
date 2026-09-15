@@ -1,4 +1,4 @@
-# Welcome to my EE 2EI4 Project Repo!
+# Welcome to my Analog Electronics Project Repo!
 
 ## Disclaimer:
 - Welcome to my 2EI4 Project page! Under this repositories you will find my project deliverables here. You are welcome to use this as a reference. However, **copying my work WILL constitute academic dishonesty**, so please don't do that. Understand McMaster Statement of Academic Integrity. 
