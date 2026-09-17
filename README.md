@@ -92,8 +92,3 @@ If you use LaTeX to write your report, and you wish to use my formatting for you
 2. On Overleaf, click `File`, then `Setting`, then `Compiler`, then `XeLaTeX` from the second dropdown box. This will allow you to render the code with Times New Roman font.
 3. Click `Recompile`, and then you are all set. 
 
-## Update Log:
-- May 26, 2026: upload `.asc` file for Project 5. 
-- Aug 4, 2026: fix some minor bugs of the LaTeX code template
-- Aug 26, 2026: update disclaimer
-
