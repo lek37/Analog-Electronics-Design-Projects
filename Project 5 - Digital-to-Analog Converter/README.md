@@ -16,7 +16,8 @@ on how the error arises and an alternative design will also be carried out as we
 
 This is the circuit schematics of the DAC process used in this project:
 
-[include an image here]
+<img width="726" height="241" alt="image" src="https://github.com/user-attachments/assets/742c7bfa-0459-40b0-8239-6d2df6c0cda8" />
+
 
 ### Circuit Operation
 
