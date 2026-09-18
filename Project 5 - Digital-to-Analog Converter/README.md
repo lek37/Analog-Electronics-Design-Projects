@@ -18,6 +18,8 @@ This is the circuit schematics of the DAC process used in this project:
 
 <img width="726" height="241" alt="image" src="https://github.com/user-attachments/assets/742c7bfa-0459-40b0-8239-6d2df6c0cda8" />
 
+_This circuit schematic was created by CircuiTikz designer and the generated script was copy and pasted to the 'main.tex' file - [Here](https://www.circuit2tikz.tf.fau.de/designer/) is the link of the tool I used to create research-level figure in the report_. 
+
 
 ### Circuit Operation
 
@@ -28,3 +30,24 @@ The op-amp U1 with the feedback resistor $R/2$ keeps the inverting input (-) app
 
 
 Since the digital input combinations goes through the inverting input terminal (-), the output voltage will be inverted as well at analog-converted voltage $v_{DAC}$. That mean the positive-valued input at $v_1,v_2,v_3$ will produce a corresponding output at $v_{DAC}$ with a negative sign. To invert the voltage, a op-amp U2 is used as a **inverting voltage amplifier** with negative gain to revert the sign of $v_{DAC}$. 
+
+### Calculation:
+
+By assuming the operational amplifiers to be at ideal conditions and basic circuit analysis, here is the function of output analog voltage in terms of the digital input voltage (0 and 5V - represents logic LOW and logic HIGH). 
+
+$$v_{out}=\frac{1}{2}v_1 + \frac{1}{4}v_2 + \frac{1}{8}v_3 $$
+
+Thus, we can have the table represents the expected analog voltage based on the digital input. Note that for this table, a 0 - logic LOW would be 0V input, and a 1 - logic HIGH would be 5V input. 
+
+ 
+| $v_1$ | $v_2$ | $v_3$ | $v_{out}$ |
+| ----- | ----- | ----- | ------    |
+| 0 | 0 | 0 | 0 |
+| 0 | 0 | 1 | 0.625 |
+| 0 | 1 | 0 | 1.25 |
+| 0 | 1 | 1 | 1.875 |
+| 1 | 0 | 0 | 2.5 |
+| 1 | 0 | 1 | 3.125 |
+| 1 | 1 | 0 | 3.75 |
+| 1 | 1 | 1 | 4.375 |
+
