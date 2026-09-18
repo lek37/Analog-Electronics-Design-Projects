@@ -18,7 +18,7 @@ This is the circuit schematics of the DAC process used in this project:
 
 <img width="726" height="241" alt="image" src="https://github.com/user-attachments/assets/742c7bfa-0459-40b0-8239-6d2df6c0cda8" />
 
-_This circuit schematic was created by CircuiTikz designer and the generated script was copy and pasted to the 'main.tex' file - [Here](https://www.circuit2tikz.tf.fau.de/designer/) is the link of the tool I used to create research-level figure in the report_. 
+_This circuit schematic was created by CircuiTikz designer and the generated script was copy and pasted to the 'main.tex' file - [Here](https://www.circuit2tikz.tf.fau.de/designer/) is the link of the tool I used to create research-level figure in the report (ignore the security message)_.
 
 
 ### Circuit Operation
@@ -40,14 +40,44 @@ $$v_{out}=\frac{1}{2}v_1 + \frac{1}{4}v_2 + \frac{1}{8}v_3 $$
 Thus, we can have the table represents the expected analog voltage based on the digital input. Note that for this table, a 0 - logic LOW would be 0V input, and a 1 - logic HIGH would be 5V input. 
 
  
-| $v_1$ | $v_2$ | $v_3$ | $v_{out}$ |
-| ----- | ----- | ----- | ------    |
-| 0 | 0 | 0 | 0 |
-| 0 | 0 | 1 | 0.625 |
-| 0 | 1 | 0 | 1.25 |
-| 0 | 1 | 1 | 1.875 |
-| 1 | 0 | 0 | 2.5 |
-| 1 | 0 | 1 | 3.125 |
-| 1 | 1 | 0 | 3.75 |
-| 1 | 1 | 1 | 4.375 |
+| $v_1$ | $v_2$ | $v_3$ | Decimal input |$v_{out}$ (V)|
+| ----- | ----- | ----- | -----         | ------    |
+| 0 | 0 | 0 | 0 | 0 |
+| 0 | 0 | 1 | 1 | 0.625 |
+| 0 | 1 | 0 | 2 | 1.25 |
+| 0 | 1 | 1 | 3 | 1.875 |
+| 1 | 0 | 0 | 4 | 2.5 |
+| 1 | 0 | 1 | 5 | 3.125 |
+| 1 | 1 | 0 | 6 | 3.75 |
+| 1 | 1 | 1 | 7 | 4.375 |
+
+## Measurement & Analysis
+
+### Physical circuit on breadboard:
+
+<img width="556" height="417" alt="image" src="https://github.com/user-attachments/assets/c250a478-e46e-4190-a1e6-a80ce3f53bd1" />ns
+
+### Digital Input Generations:
+I configured the Supplies channel of the AD3 as following:
+- **Positive Supply (V+):** 5V. This is connected from the V+ probe of the AD3 to the common positive rail of the breadboard, to the V+ pin of the LM662CN op-amps.
+- **Negative Supply**: -5V. This is connected straight from the V- probe of the AD3 to the V- pin of the LM662CN op-amps.
+
+Additionally, the GND probe from the AD3 is connected to the negative rail of the breadboard. The digital input $v_1,v_2,v_3$ are placed at the positive rail (5V) or the negative rail (0V) correspond to logic HIGH (1) or logic LOW (0), respectively, to generate a 3-bit binary input combination. 
+
+### Transfer Characteristics:
+The table below shows the transfer characteristics of the DAC system:
+
+| $v_1$ | $v_2$ | $v_3$ | Decimal input | $v_{theoretical}$ (V)| $v_{actual}$ (V) |
+| ----- | ----- | ----- | -----         | ------    | ----- |
+| 0 | 0 | 0 | 0 | 0 | 0.036 | 
+| 0 | 0 | 1 | 1 | 0.625 | 0.653 |
+| 0 | 1 | 0 | 2 | 1.25 | 1.236 | 
+| 0 | 1 | 1 | 3 | 1.875 | 1.873 | 
+| 1 | 0 | 0 | 4 | 2.5 | 2.484 | 
+| 1 | 0 | 1 | 5 | 3.125 | 3.121 | 
+| 1 | 1 | 0 | 6 | 3.75 | 3.733 | 
+| 1 | 1 | 1 | 7 | 4.375 | 4.345 |
+
+### Error Identification & Measurement:
+**Gain error**: this quantity represents the percentage error of the actual full-scaled voltage versus the expected full-scaled voltage. For this project, $V_{FS,theoretical}=4.375V$, and $V_{FS,actual}=V_{out,111}-V_{out,000}=4.345V-0.036V=4.309V$
 
